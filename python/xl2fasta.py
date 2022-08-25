@@ -8,6 +8,7 @@ ws=wb['Sheet1']
 df = pd.DataFrame(ws.values)
 df.columns=df.loc[0,:].to_list()
 df=df.drop(labels=0, axis=0)
+df['qseq'] = df['qseq'].str.replace('-','')
 df['Unnamed: 0'] = '>'
 df['qstart']='\n' 
 df['qseqid']=df['Unnamed: 0']+df['qseqid']+df['qstart']+df['qseq']
