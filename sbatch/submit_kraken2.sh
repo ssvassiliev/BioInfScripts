@@ -1,3 +1,8 @@
+#!/bin/bash
+#SBATCH --time=05:00:00
+#SBATCH --mem-per-cpu=4000
+#SBATCH -c8
+
 module load StdEnv/2020 gcc/9.3.0
 module load kraken2/2.1.1
 
@@ -16,3 +21,5 @@ kraken2 --threads $SLURM_CPUS_PER_TASK --db kraken2database \
 --use-names  --memory-mapping  --confidence 0.5 06-270_S_p_R1.trim.fq 
 
 cp -r $RESULTS_DIR $WORKDIR
+
+
