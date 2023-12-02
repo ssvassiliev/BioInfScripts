@@ -16,8 +16,8 @@ checksums = ['4255aa9c4f09ec686b1c717bffe2dd124d3ef9b87f00e74d1bcd51b8599b8e44']
 
 
 dependencies = [
-    ('Boost', '1.72.0'),
-    ('expat', '2.2.10'),
+    ('Boost', '1.80.0'),
+    ('expat', '2.4.1'),
 ]
 
 
