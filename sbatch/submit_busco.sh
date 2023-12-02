@@ -2,6 +2,7 @@
 
 #SBATCH --time 3:0:0 --mem-per-cpu=4000
 
+module load StdEnv/2020 hmmer/3.3.2 metaeuk/6
 source /project/def-orajora/software/env-busco/bin/activate
 
 busco -m transcriptome\
