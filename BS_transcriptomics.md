@@ -168,6 +168,8 @@ format  type  num_seqs  sum_len  min_len  avg_len  max_len
 FASTA   DNA        334  197,688      205    591.9    1,797
 
 
+
+http://bioinfo.bti.cornell.edu/ftp/program/iAssembler/
 iAssembler results:
 /project/def-orajora/software/iAssembler-v1.3.3.x64/combined.fasta_output/unigene_seq.fasta
 
@@ -175,3 +177,5 @@ for i in `seq 1 1645`; do printf "UN%0*i\n" 4 $i; done > list_all.txt
 cut -f1 unigene_matches_embriophyta.tsv | uniq > list_embryophyta.txt
 
 diff list_embryophyta.txt list_all.txt  | grep '^>' | sed 's/^>\ //' > list_no_embryophyta.txt
+
+seqtk subseq unigene_seq.fasta list_no_embryophyta.txt > unigene_seq_no_embryophyta.fasta
