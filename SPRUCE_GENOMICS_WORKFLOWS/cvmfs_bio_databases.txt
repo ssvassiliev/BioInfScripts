@@ -1,0 +1,1 @@
+/cvmfs/bio.data.computecanada.ca/content/databases/Core/blast_dbs

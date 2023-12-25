@@ -16,3 +16,22 @@ $DATA_DIR2/RSCotreated.fastqsanger.trimmed.single,\
 $DATA_DIR2/RSelevatedCO2.fastqsanger.trimmed.single
 
 cp trinity_out_dir.Trinity.fasta trinity_out_dir.Trinity.fasta.gene_trans_map $WORKDIR
+
+-----
+
+
+#!/bin/bash
+#SBATCH --account=def-srazul
+#SBATCH --mem=0
+#SBATCH --time=6-23:59        # expect run time (DD-HH:MM)
+#SBATCH --nodes=1            
+#SBATCH --cpus-per-task=24    # There are 24 CPU cores on P100 Cedar GPU nodes
+#SBATCH --gpus-per-node=p100l:4
+module load StdEnv/2020  intel/2020.1.217  openmpi/4.0.3
+module load nwchem/7.0.2
+cp ABCD.nw $SLURM_TMPDIR
+sed -i s"#\/home\/bviswana\/scratch#$SLURM_TMPDIR#g" $SLURM_TMPDIR/ABCD.nw
+sed -i s'/maxiter 200/maxiter 2000/' $SLURM_TMPDIR/ABCD.nw
+
+srun nwchem $SLURM_TMPDIR/ABCD.nw > $PWD/ABCD.nwo
+
